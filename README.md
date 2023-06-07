@@ -21,7 +21,7 @@ número y categoría.
 
 4)Una vez que los susarios seleccionan los asientos deseados, se verifica la 
 disponibilidad y permite confirmar la reserva mostrando el precio a pagar. 
-**En caso de algń asiento ya esté reservado por otro pasajero, se informa al 
+**En caso de algún asiento ya esté reservado por otro pasajero, se informa al 
 usuario para que pueda elegir otro asiento disponible.** 
 
 5)El personal debe confirmar el pago (no lo gestiona el sistema) lo que reserva 
