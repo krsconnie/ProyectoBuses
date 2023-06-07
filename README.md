@@ -4,7 +4,7 @@ Consiste en hacer un sistema de reserva de asientos de buses.
 
 Integrantes:
 
--Matias Alonso Muñoz Sotomayor @Matatatata
+-Matias Alonso Muñoz Sotomayor @Matatatatatata
 
 -Constanza Fabiola Cristinich Ananias @krsconnie
 
