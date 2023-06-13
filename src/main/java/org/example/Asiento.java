@@ -4,6 +4,8 @@ public class Asiento {
     private boolean reservado;
     private int numero;
     private String categoria;
+
+    private String Ubicación;
     private int precio;
 
     public void Asiento(int numero){
@@ -29,6 +31,18 @@ public class Asiento {
 
     public int quePrecio(){
         return this.precio;
+    }
+
+    public String dondeQueda(){
+
+        if(getNumero()%2 == 0){
+
+            return "pasillo";//Si el asiento es par va al pasillo
+
+        } else{
+
+            return "ventana";
+        }
     }
 }
 
