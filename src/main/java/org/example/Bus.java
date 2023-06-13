@@ -1,12 +1,16 @@
 package org.example;
+
+import java.util.ArrayList;
+
 public class Bus {
     private int valorPasaje;
     private String horario;
     private String recorrido;
+    private ArrayList<Asiento> asientos;
 
-    private Asiento asientos Arraylist[];
-
-    public Bus() {}
+    public Bus(int numeroAsientos) {
+        asientos = new ArrayList<Asiento>(numeroAsientos);
+    }
 
     public int getValorPasaje() {
         return valorPasaje;
