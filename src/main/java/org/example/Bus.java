@@ -1,12 +1,18 @@
 package org.example;
 import java.util.ArrayList;
 
+/**
+ * Representa un autobús que realiza un recorrido específico y tiene asientos disponibles.
+ */
 public class Bus {
     private int valorPasaje;
     private String horario;
     private ArrayList<Asiento> asientos;
     private Recorrido recorrido;
 
+    /**
+     * Enumeración que define los diferentes recorridos y sus precios base.
+     */
     private enum Recorrido {
         Concepcion_Santiago(10000),
         Concepcion_Chillan(5000),
@@ -21,11 +27,22 @@ public class Bus {
             this.precio = precio;
         }
 
+        /**
+         * Obtiene el precio base del recorrido.
+         *
+         * @return el precio base del recorrido
+         */
         public int getPrecio() {
             return precio;
         }
     }
 
+    /**
+     * Crea una instancia de la clase Bus con el número de asientos y el recorrido especificados.
+     *
+     * @param numeroAsientos el número de asientos disponibles en el autobús
+     * @param recorrido      el recorrido que realiza el autobús
+     */
     public Bus(int numeroAsientos, Recorrido recorrido) {
         asientos = new ArrayList<>();
         this.recorrido = recorrido;
@@ -50,20 +67,43 @@ public class Bus {
             }
         }
     }
+
+    /**
+     * Obtiene el valor del pasaje para un asiento específico.
+     *
+     * @param numeroAsiento el número de asiento para el cual se desea obtener el valor del pasaje
+     * @return el valor del pasaje para el asiento especificado
+     */
     public int getValorPasaje(int numeroAsiento) {
         Asiento asiento = asientos.get(numeroAsiento);
         int precioAsiento = asiento.quePrecio();
         int valorPasaje = recorrido.getPrecio() + precioAsiento;
         return valorPasaje;
     }
+
+    /**
+     * Obtiene el horario del autobús.
+     *
+     * @return el horario del autobús
+     */
     public String getHorario() {
         return horario;
     }
 
+    /**
+     * Establece el horario del autobús.
+     *
+     * @param horario el horario del autobús
+     */
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
+    /**
+     * Obtiene el recorrido del autobús en formato legible.
+     *
+     * @return el recorrido del autobús
+     */
     public String getRecorrido() {
         return recorrido.name().replace("_", " ");
     }

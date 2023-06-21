@@ -1,17 +1,34 @@
 package org.example;
 
-public class Regular extends Asiento{
+/**
+ * La clase Regular representa un tipo de asiento regular en un autobús.
+ * Extiende la clase Asiento.
+ */
+public class Regular extends Asiento {
     private static int precio = 200;
 
+    /**
+     * Constructor de la clase Regular.
+     */
+    public void Regular() {}
 
-    public void Regular(){}
-    public static int quePrecio(){
+    /**
+     * Obtiene el precio del asiento regular.
+     *
+     * @return el precio del asiento regular
+     */
+    public static int quePrecio() {
         return precio;
     }
 
+    /**
+     * Obtiene la categoría del asiento regular.
+     *
+     * @return la categoría del asiento regular
+     */
     @Override
-    public String queCategoria(){
+    public String queCategoria() {
         return "Regular";
     }
-
 }
+
