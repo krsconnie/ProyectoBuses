@@ -1,36 +1,44 @@
 package org.example;
 
 public class Asiento {
-    private boolean reservado;
+    private EstadoAsiento estado;
     private int numero;
     private String categoria;
 
     private String Ubicación;
-    private int precio;
+    private static int precio;
 
     public void Asiento(int numero){
         this.numero = numero;
-        this.reservado = false;
     }
 
-    public void reservarAsiento(){
-        this.reservado = true;
+    public void setEstado(EstadoAsiento estado) {
+        this.estado = estado;
     }
+
+    public void reservar() {
+        estado.reservar(this);
+    }
+
+    public void cancelarReserva() {
+        estado.cancelarReserva(this);
+    }
+    public EstadoAsiento getEstado() {
+        return estado;
+    }
+
 
     public int getNumero(){
         return numero;
     }
 
-    public boolean estaReservado(){
-        return reservado;
-    }
 
     public String queCategoria(){
         return this.categoria;
     }
 
-    public int quePrecio(){
-        return this.precio;
+    public static int quePrecio(){
+        return precio;
     }
 
     public String dondeQueda(){
