@@ -12,11 +12,8 @@ public class Asiento {
 
     /**
      * Constructor de la clase Asiento.
-     *
-     * @param numero el número del asiento
      */
-    public void Asiento(int numero) {
-        this.numero = numero;
+    public void Asiento() {
     }
 
     /**
@@ -58,6 +55,12 @@ public class Asiento {
      */
     public int getNumero() {
         return numero;
+    }
+    /**
+     * Se especifica el número del asiento
+     * @param n */
+    public void setNumero(int n){
+        numero = n;
     }
 
     /**

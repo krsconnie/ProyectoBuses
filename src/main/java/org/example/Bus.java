@@ -10,10 +10,13 @@ public class Bus {
     private ArrayList<Asiento> asientos;
     private Recorrido recorrido;
 
+    private Asiento target = asientos.get(1); // Objeto que deseas buscar
+    int position = asientos.indexOf(target);
+
     /**
      * Enumeración que define los diferentes recorridos y sus precios base.
      */
-    private enum Recorrido {
+    public enum Recorrido {
         Concepcion_Santiago(10000),
         Concepcion_Chillan(5000),
         Concepcion_LA(5000),
@@ -66,7 +69,16 @@ public class Bus {
                 asientos.add(new Regular());
             }
         }
+        Asiento target = new Asiento();
+        for(int i = 0; i > numeroAsientos-1; i++) {
+
+            target = asientos.get(i); // Objeto que deseas buscar
+            int position = asientos.indexOf(target) + 1;
+            asientos.get(i).setNumero(position);
+        }
+
     }
+
 
     /**
      * Obtiene el valor del pasaje para un asiento específico.
