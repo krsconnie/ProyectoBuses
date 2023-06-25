@@ -1,23 +1,22 @@
 package Visual;
-
-import org.example.Asiento;
+import org.example.SalonCama;
 
 import java.awt.Image;
 
 /**
- * La clase AsientoVisual es una clase wrapper de la clase Asiento que proporciona métodos visuales adicionales.
+ * La clase SalonCamaVisual es una clase wrapper de la clase SalonCama que proporciona métodos visuales adicionales.
  */
-public class AsientoVisual {
-    private Asiento asiento;
+public class SalonCamaVisual extends AsientoVisual {
+    private SalonCama asiento;
     private Image imagen;
     private int posicionX;
     private int posicionY;
 
     /**
-     * Constructor de la clase AsientoVisual.
+     * Constructor de la clase SalonCamaVisual.
      */
-    public AsientoVisual() {
-        asiento = new Asiento();
+    public SalonCamaVisual() {
+        asiento = new SalonCama();
     }
 
     /**
@@ -40,4 +39,3 @@ public class AsientoVisual {
         this.posicionY = posicionY;
     }
 }
-

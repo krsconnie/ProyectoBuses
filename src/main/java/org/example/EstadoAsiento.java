@@ -16,4 +16,6 @@ public interface EstadoAsiento {
      * @param asiento el asiento cuya reserva se desea cancelar
      */
     void cancelarReserva(Asiento asiento);
+
+    String getEstado();
 }

@@ -23,5 +23,8 @@ public class AsientoReservado implements EstadoAsiento {
     public void cancelarReserva(Asiento asiento) {
         asiento.setEstado(new AsientoDisponible());
     }
+    public String getEstado(){
+        return "Reservado";
+    }
 }
 

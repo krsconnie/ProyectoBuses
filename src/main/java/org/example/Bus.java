@@ -7,11 +7,9 @@ import java.util.ArrayList;
 public class Bus {
     private int valorPasaje;
     private String horario;
-    private ArrayList<Asiento> asientos;
+    ArrayList<Asiento> asientos;
     private Recorrido recorrido;
 
-    private Asiento target = asientos.get(1); // Objeto que deseas buscar
-    int position = asientos.indexOf(target);
 
     /**
      * Enumeración que define los diferentes recorridos y sus precios base.
@@ -70,7 +68,7 @@ public class Bus {
             }
         }
         Asiento target = new Asiento();
-        for(int i = 0; i > numeroAsientos-1; i++) {
+        for (int i = 0; i > numeroAsientos - 1; i++) {
 
             target = asientos.get(i); // Objeto que deseas buscar
             int position = asientos.indexOf(target) + 1;
@@ -87,7 +85,7 @@ public class Bus {
      * @return el valor del pasaje para el asiento especificado
      */
     public int getValorPasaje(int numeroAsiento) {
-        Asiento asiento = asientos.get(numeroAsiento);
+        Asiento asiento = asientos.get(numeroAsiento - 1);
         int precioAsiento = asiento.quePrecio();
         int valorPasaje = recorrido.getPrecio() + precioAsiento;
         return valorPasaje;
@@ -118,5 +116,12 @@ public class Bus {
      */
     public String getRecorrido() {
         return recorrido.name().replace("_", " ");
+    }
+
+    public void reservarAsiento(int numeroAsiento) {
+        Asiento reserva = asientos.get(numeroAsiento - 1);
+        if (reserva.getEstado().getEstado().equals("Disponible")) {
+            reserva.reservar();
+        }
     }
 }

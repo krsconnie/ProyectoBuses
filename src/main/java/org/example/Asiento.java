@@ -4,7 +4,7 @@ package org.example;
  * La clase Asiento representa un asiento en un autobús.
  */
 public class Asiento {
-    private EstadoAsiento estado;
+    private EstadoAsiento estado = new AsientoDisponible();
     private int numero;
     private String categoria;
     private String ubicacion;

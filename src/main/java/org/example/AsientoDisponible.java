@@ -23,5 +23,8 @@ public class AsientoDisponible implements EstadoAsiento {
     public void cancelarReserva(Asiento asiento) {
         // No se puede cancelar una reserva si el asiento está disponible
     }
+    public String getEstado(){
+        return "Disponible";
+    }
 }
 
