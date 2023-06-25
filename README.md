@@ -32,3 +32,7 @@ los asientos.
 7)El sistema cuenta con un menú que permite seleccionar el autobus en función
 de su horario y recorrido.
 
+
+Patrones de Diseño usados:
+>>State: El patrón de diseño State ayuda a un objeto a comportarse de diferentes maneras según su estado actual.
+Se usa en el Objeto Asiento, para definir cuando esta disponible o reservado, dependiendo de eso se comportará de una manera distinta.
