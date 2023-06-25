@@ -10,26 +10,26 @@ Integrantes:
 
 Especificaciones del proyecto:
 
-1)El sistema permite al personal de una empresa de autobuses elegir y reservar
+>>1)El sistema permite al personal de una empresa de autobuses elegir y reservar
 asientos de forma conveniente por su cliente.
 
-2)Los usuarios pueden visualizar una representación gráfica de los asientos
+>>2)Los usuarios pueden visualizar una representación gráfica de los asientos
 disponibles en el bus y seleccionar los que deseen ocupar.
 
-3)El sistema muestra la información detallada sobre cada asiento, como ubicación,
+>>3)El sistema muestra la información detallada sobre cada asiento, como ubicación,
 número y categoría.
 
-4)Una vez que los susarios seleccionan los asientos deseados, se verifica la 
+>>4)Una vez que los susarios seleccionan los asientos deseados, se verifica la 
 disponibilidad y permite confirmar la reserva mostrando el precio a pagar. 
 **En caso de algún asiento ya esté reservado por otro pasajero, se informa al 
 usuario para que pueda elegir otro asiento disponible.** 
 
-5)El personal debe confirmar el pago (no lo gestiona el sistema) lo que reserva 
+>>5)El personal debe confirmar el pago (no lo gestiona el sistema) lo que reserva 
 los asientos.
 
-6)El sistema gestiona varios tipos de buses (1 o 2 pisos, categorias, etc).
+>>6)El sistema gestiona varios tipos de buses (1 o 2 pisos, categorias, etc).
 
-7)El sistema cuenta con un menú que permite seleccionar el autobus en función
+>>7)El sistema cuenta con un menú que permite seleccionar el autobus en función
 de su horario y recorrido.
 
 
