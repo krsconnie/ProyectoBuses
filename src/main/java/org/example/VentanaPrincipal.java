@@ -35,7 +35,9 @@ public class VentanaPrincipal extends JFrame {
         // Creación de eventos (en proceso)
         btnCrearRecorrido.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            
+                // Se castea el sub menu
+                VentanaCrearRecorrido ventanaCrearRecorrido = new VentanaCrearRecorrido();
+                ventanaCrearRecorrido.setVisible(true);
             }
         });
 
