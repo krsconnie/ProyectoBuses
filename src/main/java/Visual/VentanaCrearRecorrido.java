@@ -21,6 +21,7 @@ public class VentanaCrearRecorrido extends JFrame {
     private JButton btnAceptar;
 
     public VentanaCrearRecorrido() {
+        
         // Parametros de la ventana sub menu
         setTitle("Crear Recorrido");
         setSize(1280, 720);
@@ -86,4 +87,5 @@ public class VentanaCrearRecorrido extends JFrame {
         }
         return months;
     }
+    
 }

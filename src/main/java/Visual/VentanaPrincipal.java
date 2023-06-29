@@ -28,7 +28,7 @@ public class VentanaPrincipal extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Cargar imagen de fondo
-                ImageIcon image = new ImageIcon("resources/TW_BUS.jpg");
+                ImageIcon image = new ImageIcon("/resources/TW_BUS.jpg");
                 Image backgroundImage = image.getImage();
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
             }
@@ -67,18 +67,16 @@ public class VentanaPrincipal extends JFrame {
                 ventanaCrearRecorrido.setVisible(true);
             }
         });
-
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Lógica para el botón "Reservar asiento"
-                System.out.println("Se ha hecho clic en el botón 'Reservar asiento'");
+                VentanaReservarAsiento ventanaReservarAsiento = new VentanaReservarAsiento();
+                ventanaReservarAsiento.setVisible(true);
             }
         });
-
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Lógica para el botón "Cancelar reserva"
-                System.out.println("Se ha hecho clic en el botón 'Cancelar reserva'");
+                VentanaCancelarReserva ventanaCancelarReserva = new VentanaCancelarReserva();
+                ventanaCancelarReserva.setVisible(true);
             }
         });
     }
