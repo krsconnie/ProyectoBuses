@@ -88,7 +88,7 @@ public class VentanaCrearRecorrido extends JFrame {
      *
      * @return Un arreglo de enteros con los días del mes.
      */
-    private Integer[] generateDayArray() {
+    public Integer[] generateDayArray() {
         Integer[] days = new Integer[31];
         for (int i = 0; i < 31; i++) {
             days[i] = i + 1;
@@ -101,7 +101,7 @@ public class VentanaCrearRecorrido extends JFrame {
      *
      * @return Un arreglo de enteros con los meses del año.
      */
-    private Integer[] generateMonthArray() {
+    public Integer[] generateMonthArray() {
         Integer[] months = new Integer[12];
         for (int i = 0; i < 12; i++) {
             months[i] = i + 1;
