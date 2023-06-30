@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Bus {
     private int valorPasaje;
     private String horario;
+    private String fecha;
     ArrayList<Asiento> asientos;
     private Recorrido recorrido;
 
@@ -123,5 +124,13 @@ public class Bus {
         if (reserva.getEstado().getEstado().equals("Disponible")) {
             reserva.reservar();
         }
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
