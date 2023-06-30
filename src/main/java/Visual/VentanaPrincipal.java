@@ -37,7 +37,7 @@ public class VentanaPrincipal extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Cargar imagen de fondo
-                ImageIcon image = new ImageIcon("resources/TW_BUS.png");
+                ImageIcon image = new ImageIcon("resources/Fruna-Bus.png");
                 Image backgroundImage = image.getImage();
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
             }
