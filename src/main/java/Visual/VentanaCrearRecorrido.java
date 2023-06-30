@@ -1,11 +1,7 @@
 package Visual;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
@@ -38,6 +34,17 @@ public class VentanaCrearRecorrido extends JFrame {
 
         // Creacion de panel
         panel = new JPanel();
+
+        panel = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Cargar imagen de fondo
+                ImageIcon image = new ImageIcon("resources/Fruna-Bus(1).png");
+                Image backgroundImage = image.getImage();
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+            }
+        };
 
         // Se añaden componentes
         lblRuta = new JLabel("Ruta:");
