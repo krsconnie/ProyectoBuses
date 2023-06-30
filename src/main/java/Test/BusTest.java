@@ -11,9 +11,8 @@ class BusTest {
     @BeforeEach
     void setUp() {
         // Configurar el autobús antes de cada prueba
-        int numeroAsientos = 70; // Cambia este valor según tus necesidades de prueba
         Bus.Recorrido recorrido = Bus.Recorrido.Concepcion_Santiago; // Cambia este valor según tus necesidades de prueba
-        bus = new Bus(numeroAsientos, recorrido);
+        bus = new Bus(recorrido);
     }
 
     @Test

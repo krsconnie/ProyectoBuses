@@ -42,34 +42,29 @@ public class Bus {
     /**
      * Crea una instancia de la clase Bus con el número de asientos y el recorrido especificados.
      *
-     * @param numeroAsientos el número de asientos disponibles en el autobús
      * @param recorrido      el recorrido que realiza el autobús
      */
-    public Bus(int numeroAsientos, Recorrido recorrido) {
+    public Bus(Recorrido recorrido) {
         asientos = new ArrayList<>();
         this.recorrido = recorrido;
 
-        if (numeroAsientos <= 60) {
-            for (int i = 0; i < numeroAsientos; i++) {
-                asientos.add(new Regular());
-            }
-        } else if ((numeroAsientos >= 60) && (recorrido.equals(Recorrido.Concepcion_Santiago) || recorrido.equals(Recorrido.Santiago_Concepcion))) {
+        if ((recorrido.equals(Recorrido.Concepcion_Santiago) || recorrido.equals(Recorrido.Santiago_Concepcion))) {
             for (int i = 0; i < 11; i++) {
                 asientos.add(new SalonCama());
             }
-            for (int i = 11; i < numeroAsientos; i++) {
+            for (int i = 11; i < 71; i++) {
                 asientos.add(new SemiCama());
             }
-        } else if ((numeroAsientos >= 60) && (recorrido.equals(Recorrido.Chillan_Concepcion) || recorrido.equals(Recorrido.Concepcion_Chillan) || recorrido.equals(Recorrido.Concepcion_LA) || recorrido.equals(Recorrido.LA_Concepcion))) {
+        } else if ((recorrido.equals(Recorrido.Chillan_Concepcion) || recorrido.equals(Recorrido.Concepcion_Chillan) || recorrido.equals(Recorrido.Concepcion_LA) || recorrido.equals(Recorrido.LA_Concepcion))) {
             for (int i = 0; i < 11; i++) {
                 asientos.add(new SemiCama());
             }
-            for (int i = 11; i < numeroAsientos; i++) {
+            for (int i = 11; i < 71; i++) {
                 asientos.add(new Regular());
             }
         }
         Asiento target = new Asiento();
-        for (int i = 0; i > numeroAsientos - 1; i++) {
+        for (int i = 0; i > 71 ; i++) {
 
             target = asientos.get(i); // Objeto que deseas buscar
             int position = asientos.indexOf(target) + 1;
