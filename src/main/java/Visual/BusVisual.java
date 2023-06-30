@@ -19,7 +19,7 @@ public class BusVisual extends Bus {
      * @param recorrido      el recorrido que realiza el autobús
      */
     public BusVisual(int numeroAsientos, Bus.Recorrido recorrido) {
-        super(numeroAsientos, recorrido);
+        super(recorrido);
     }
 
     /**
