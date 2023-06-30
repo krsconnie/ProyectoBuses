@@ -1,5 +1,8 @@
 package Visual;
 
+import org.example.Bus;
+import org.example.SistemaReservas;
+
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,6 +10,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +23,8 @@ import javax.swing.JPanel;
  */
 public class VentanaPrincipal extends JFrame {
     private JPanel panel;
+    SistemaReservas sistemaReservas;
+    private Bus bus;
 
     /**
      * Constructor de la clase VentanaPrincipal.
@@ -40,10 +46,17 @@ public class VentanaPrincipal extends JFrame {
                 ImageIcon image = new ImageIcon("resources/Fruna-Bus.png");
                 Image backgroundImage = image.getImage();
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+
+                //Inicialización sistema de reservas
+                sistemaReservas= new SistemaReservas();
             }
         };
 
         panel.setLayout(new GridBagLayout());
+
+        //public void CrearBus(Recorrido recorrido){
+        //    bus = new Bus(recorrido);
+        //}
 
         // Creación de botones
         JButton btnCrearRecorrido = new JButton("Crear recorrido");

@@ -1,9 +1,13 @@
 package Visual;
+import org.example.Bus;
+
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+
 /**
  * La clase VentanaCrearRecorrido representa una ventana para crear un recorrido.
  * Hereda de JFrame y contiene varios componentes como etiquetas, combo boxes,
@@ -20,6 +24,9 @@ public class VentanaCrearRecorrido extends JFrame {
     private JComboBox<Integer> cmbMes;
     private JTextField txtHora;
     private JButton btnAceptar;
+    private Bus bus;
+
+    private VentanaPrincipal ventanaPrincipal;
 
     /**
      * Constructor de la clase VentanaCrearRecorrido.
@@ -50,7 +57,7 @@ public class VentanaCrearRecorrido extends JFrame {
         lblRuta = new JLabel("Ruta:");
         lblFecha = new JLabel("Fecha:");
         lblHora = new JLabel("Hora:");
-        cmbRuta = new JComboBox<>(new String[]{"Santiago-Concepcion", "Chillan-Concepcion", "Los Angeles-Concepcion", "Concepcion-Santiago", "Concepcion-Los Angeles", "Concepcion-Chillan"});
+        cmbRuta = new JComboBox<>(new String[]{"Santiago_Concepcion", "Chillan_Concepcion", "LosAngeles_Concepcion", "Concepcion_Santiago", "Concepcion_LosAngeles", "Concepcion_Chillan"});
         cmbDia = new JComboBox<>(generateDayArray());
         cmbMes = new JComboBox<>(generateMonthArray());
         txtHora = new JTextField(10);
@@ -83,6 +90,9 @@ public class VentanaCrearRecorrido extends JFrame {
                 System.out.println("Ruta: " + ruta);
                 System.out.println("Fecha: " + fecha);
                 System.out.println("Hora: " + hora);
+
+                Bus.Recorrido recorrido = Bus.Recorrido.valueOf(ruta);
+                //ventanaPrincipal.CrearBus(recorrido);
 
                 // Se cierra la ventana tras finalizar
                 dispose();
