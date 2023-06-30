@@ -1,16 +1,10 @@
 package Visual;
 
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class VentanaReservarAsiento extends JFrame {
     private JPanel panel;
@@ -23,6 +17,17 @@ public class VentanaReservarAsiento extends JFrame {
 
         // Creación de panel
         panel = new JPanel(new GridBagLayout());
+
+        panel = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Cargar imagen de fondo
+                ImageIcon image = new ImageIcon("resources/Fruna-Bus(2).png");
+                Image backgroundImage = image.getImage();
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+            }
+        };
 
         // Creación de etiqueta de mensaje
         JLabel lblMensaje = new JLabel("Pagina en construccion");
