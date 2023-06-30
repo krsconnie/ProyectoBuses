@@ -37,6 +37,10 @@ Patrones de Diseño usados:
 >>State: El patrón de diseño State ayuda a un objeto a comportarse de diferentes maneras según su estado actual.
 Se usa en el Objeto Asiento, para definir cuando esta disponible o reservado, dependiendo de eso se comportará de una manera distinta.
 
+Diagrama Casos de Uso:
+![Diagrama_casos_de_uso](https://github.com/krsconnie/ProyectoBuses/assets/109244120/dc03fe0f-12b6-497d-85d9-1e02f29d12cd)
+
+
 Interfaz:
 ![image](https://github.com/krsconnie/ProyectoBuses/assets/109244120/e10e9438-7151-462b-b016-9dd3b4723f09)
 
