@@ -12,10 +12,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+/**
+ * La clase VentanaPrincipal representa la ventana principal de una aplicación de venta de pasajes de buses.
+ * Hereda de JFrame y contiene un panel con botones para realizar acciones principales, como crear un recorrido,
+ * reservar un asiento y cancelar una reserva.
+ */
 public class VentanaPrincipal extends JFrame {
     private JPanel panel;
 
+    /**
+     * Constructor de la clase VentanaPrincipal.
+     * Configura los parámetros de la ventana principal, crea el panel y agrega los botones correspondientes.
+     * También define el comportamiento de los botones al ser presionados.
+     */
     public VentanaPrincipal() {
         // Parametros de la ventana
         setTitle("Venta de Pasajes de Buses");
@@ -33,7 +42,7 @@ public class VentanaPrincipal extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
             }
         };
-            
+
         panel.setLayout(new GridBagLayout());
 
         // Creación de botones
@@ -56,25 +65,27 @@ public class VentanaPrincipal extends JFrame {
         panel.add(btnCancelarReserva, gbc);
 
 
-        // Se añade panel
+        // Se añade panel a la ventana principal
         add(panel);
 
-        // Creación de eventos (en proceso)
+        // Creación de eventos para los botones
         btnCrearRecorrido.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Se castea el sub menu
+                // Se crea y muestra la ventana para crear un recorrido
                 VentanaCrearRecorrido ventanaCrearRecorrido = new VentanaCrearRecorrido();
                 ventanaCrearRecorrido.setVisible(true);
             }
         });
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // Se crea y muestra la ventana para reservar un asiento
                 VentanaReservarAsiento ventanaReservarAsiento = new VentanaReservarAsiento();
                 ventanaReservarAsiento.setVisible(true);
             }
         });
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // Se crea y muestra la ventana para cancelar una reserva
                 VentanaCancelarReserva ventanaCancelarReserva = new VentanaCancelarReserva();
                 ventanaCancelarReserva.setVisible(true);
             }
