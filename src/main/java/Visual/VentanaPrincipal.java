@@ -24,6 +24,9 @@ import javax.swing.JPanel;
 public class VentanaPrincipal extends JFrame {
     private JPanel panel;
     SistemaReservas sistemaReservas;
+    VentanaCrearRecorrido ventanaCrearRecorrido;
+    VentanaReservarAsiento ventanaReservarAsiento;
+    VentanaCancelarReserva ventanaCancelarReserva;
     private Bus bus;
 
     /**
@@ -32,6 +35,11 @@ public class VentanaPrincipal extends JFrame {
      * También define el comportamiento de los botones al ser presionados.
      */
     public VentanaPrincipal() {
+
+        ventanaCrearRecorrido = new VentanaCrearRecorrido();
+        ventanaReservarAsiento = new VentanaReservarAsiento();
+        ventanaCancelarReserva = new VentanaCancelarReserva();
+
         // Parametros de la ventana
         setTitle("Venta de Pasajes de Buses");
         setSize(1280, 720);
@@ -84,22 +92,19 @@ public class VentanaPrincipal extends JFrame {
         // Creación de eventos para los botones
         btnCrearRecorrido.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Se crea y muestra la ventana para crear un recorrido
-                VentanaCrearRecorrido ventanaCrearRecorrido = new VentanaCrearRecorrido();
+                // Se muestra la ventana para crear un recorrido
                 ventanaCrearRecorrido.setVisible(true);
             }
         });
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Se crea y muestra la ventana para reservar un asiento
-                VentanaReservarAsiento ventanaReservarAsiento = new VentanaReservarAsiento();
+                // Se muestra la ventana para reservar un asiento
                 ventanaReservarAsiento.setVisible(true);
             }
         });
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Se crea y muestra la ventana para cancelar una reserva
-                VentanaCancelarReserva ventanaCancelarReserva = new VentanaCancelarReserva();
+                // Se muestra la ventana para cancelar una reserva
                 ventanaCancelarReserva.setVisible(true);
             }
         });
