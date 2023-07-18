@@ -18,10 +18,10 @@ public class Bus {
     public enum Recorrido {
         Concepcion_Santiago(10000),
         Concepcion_Chillan(5000),
-        Concepcion_LA(5000),
+        Concepcion_LosAngeles(5000),
         Chillan_Concepcion(5000),
         Santiago_Concepcion(10000),
-        LA_Concepcion(5000);
+        LosAngeles_Concepcion(5000);
 
         private int precio;
 
@@ -55,7 +55,7 @@ public class Bus {
             for (int i = 11; i < 71; i++) {
                 asientos.add(new SemiCama());
             }
-        } else if ((recorrido.equals(Recorrido.Chillan_Concepcion) || recorrido.equals(Recorrido.Concepcion_Chillan) || recorrido.equals(Recorrido.Concepcion_LA) || recorrido.equals(Recorrido.LA_Concepcion))) {
+        } else if ((recorrido.equals(Recorrido.Chillan_Concepcion) || recorrido.equals(Recorrido.Concepcion_Chillan) || recorrido.equals(Recorrido.Concepcion_LosAngeles) || recorrido.equals(Recorrido.LosAngeles_Concepcion))) {
             for (int i = 0; i < 11; i++) {
                 asientos.add(new SemiCama());
             }
