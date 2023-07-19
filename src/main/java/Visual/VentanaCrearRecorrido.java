@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * La clase VentanaCrearRecorrido representa una ventana para crear un recorrido.
@@ -24,9 +24,10 @@ public class VentanaCrearRecorrido extends JFrame {
     private JComboBox<Integer> cmbMes;
     private JTextField txtHora;
     private JButton btnAceptar;
-    private Bus bus;
+    private Bus.Recorrido recorrido;
 
-    private VentanaPrincipal ventanaPrincipal;
+    private ArrayList<Bus.Recorrido> recorridos;
+
 
     /**
      * Constructor de la clase VentanaCrearRecorrido.
@@ -34,6 +35,9 @@ public class VentanaCrearRecorrido extends JFrame {
      * También define el comportamiento del botón Aceptar.
      */
     public VentanaCrearRecorrido() {
+
+        ArrayList<Bus.Recorrido> recorridos = new ArrayList<Bus.Recorrido>();
+
         // Parametros de la ventana submenú
         setTitle("Crear Recorrido");
         setSize(1280, 720);
@@ -91,10 +95,9 @@ public class VentanaCrearRecorrido extends JFrame {
                 System.out.println("Fecha: " + fecha);
                 System.out.println("Hora: " + hora);
 
-                Bus.Recorrido recorrido = Bus.Recorrido.valueOf(ruta);
-                //ventanaPrincipal.CrearBus(recorrido);
-
-                // Se cierra la ventana tras finalizar
+                recorrido = Bus.Recorrido.valueOf(ruta);
+                recorridos.add(recorrido);
+                 //Se cierra la ventana tras finalizar
                 dispose();
             }
         });
@@ -124,5 +127,11 @@ public class VentanaCrearRecorrido extends JFrame {
             months[i] = i + 1;
         }
         return months;
+    }
+    public int getNumBuses(){
+        return recorridos.size();
+    }
+    public Bus.Recorrido getRuta(int i){
+            return recorridos.get(i);
     }
 }

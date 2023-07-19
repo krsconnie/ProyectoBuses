@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -27,6 +28,8 @@ public class VentanaPrincipal extends JFrame {
     VentanaCrearRecorrido ventanaCrearRecorrido;
     VentanaReservarAsiento ventanaReservarAsiento;
     VentanaCancelarReserva ventanaCancelarReserva;
+    ArrayList<Bus.Recorrido> recorridos;
+    ArrayList<Bus> buses;
     private Bus bus;
 
     /**
@@ -46,7 +49,7 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Creación de panel
-        panel = new JPanel(){
+        panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -56,15 +59,11 @@ public class VentanaPrincipal extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
 
                 //Inicialización sistema de reservas
-                sistemaReservas= new SistemaReservas();
+                sistemaReservas = new SistemaReservas();
             }
         };
 
         panel.setLayout(new GridBagLayout());
-
-        //public void CrearBus(Recorrido recorrido){
-        //    bus = new Bus(recorrido);
-        //}
 
         // Creación de botones
         JButton btnCrearRecorrido = new JButton("Crear recorrido");
@@ -108,5 +107,14 @@ public class VentanaPrincipal extends JFrame {
                 ventanaCancelarReserva.setVisible(true);
             }
         });
+    }
+    public void CrearBuses() {
+        for (int i = 0; i < ventanaCrearRecorrido.getNumBuses(); i++) {
+            Bus.Recorrido recorrido = ventanaCrearRecorrido.getRuta(i);
+            if (recorrido != null) {
+                bus = new Bus(recorrido);
+            }
+            buses.add(bus);
+        }
     }
 }

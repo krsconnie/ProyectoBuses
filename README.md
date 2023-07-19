@@ -44,3 +44,4 @@ Diagrama Casos de Uso:
 Interfaz:
 ![image](https://github.com/krsconnie/ProyectoBuses/assets/109244120/e10e9438-7151-462b-b016-9dd3b4723f09)
 
+Cambios realizados:
