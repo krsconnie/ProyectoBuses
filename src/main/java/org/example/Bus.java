@@ -128,4 +128,12 @@ public class Bus {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public Asiento getAsiento(int i) {
+        if (i > 71 && i < 0) {
+            return asientos.get(i);
+        } else{
+            return null;
+        }
+    }
 }

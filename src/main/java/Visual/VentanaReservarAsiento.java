@@ -1,15 +1,21 @@
 package Visual;
 
+import org.example.Asiento;
+import org.example.Bus;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 public class VentanaReservarAsiento extends JFrame {
     private JPanel panel;
+    ArrayList<Bus> buses;
+    Bus bus;
 
-    public VentanaReservarAsiento() {
+    public VentanaReservarAsiento(ArrayList<Bus> buses) {
         // Parametros de la ventana
         setTitle("Reservar Asiento");
         setSize(1280, 720);
@@ -61,5 +67,17 @@ public class VentanaReservarAsiento extends JFrame {
 
         // Agregar panel a la ventana
         add(panel);
+
+
+    }
+    public Bus getBus(int i){
+        return buses.get(i);
+    }
+    public Asiento getAsiento(int j, int i) {
+        if (i > 71 && i < 0) {
+            return buses.get(j).getAsiento(i);
+        } else {
+            return null;
+        }
     }
 }

@@ -6,14 +6,13 @@ import java.util.List;
  * La clase SistemaReservas representa un sistema de reservas de autobuses.
  */
 public class SistemaReservas {
-    private List<Bus> autobuses;
+    private ArrayList<Bus> autobuses;
 
     /**
      * Constructor de la clase SistemaReservas.
      * Inicializa la lista de autobuses.
      */
-    public SistemaReservas() {
-        autobuses = new ArrayList<>();
+    public SistemaReservas(ArrayList<Bus> autobuses) {
     }
 
     /**

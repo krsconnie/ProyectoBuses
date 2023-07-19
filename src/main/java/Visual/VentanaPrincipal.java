@@ -40,8 +40,8 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
 
         ventanaCrearRecorrido = new VentanaCrearRecorrido();
-        ventanaReservarAsiento = new VentanaReservarAsiento();
-        ventanaCancelarReserva = new VentanaCancelarReserva();
+        ventanaReservarAsiento = new VentanaReservarAsiento(buses);
+        ventanaCancelarReserva = new VentanaCancelarReserva(buses);
 
         // Parametros de la ventana
         setTitle("Venta de Pasajes de Buses");
@@ -59,7 +59,7 @@ public class VentanaPrincipal extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
 
                 //Inicialización sistema de reservas
-                sistemaReservas = new SistemaReservas();
+                sistemaReservas = new SistemaReservas(buses);
             }
         };
 
@@ -116,5 +116,8 @@ public class VentanaPrincipal extends JFrame {
             }
             buses.add(bus);
         }
+    }
+    public Bus getBus(int i){
+        return buses.get(i);
     }
 }
