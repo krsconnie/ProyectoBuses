@@ -16,20 +16,11 @@ public class SistemaReservas {
     }
 
     /**
-     * Agrega un autobús a la lista de autobuses disponibles en el sistema.
-     *
-     * @param autobus el autobús a agregar
-     */
-    public void agregarAutobus(Bus autobus) {
-        autobuses.add(autobus);
-    }
-
-    /**
      * Obtiene la lista de autobuses disponibles en el sistema.
      *
      * @return la lista de autobuses
      */
-    public List<Bus> getAutobuses() {
+    public ArrayList<Bus> getAutobuses() {
         return autobuses;
     }
 

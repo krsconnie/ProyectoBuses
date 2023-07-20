@@ -91,6 +91,7 @@ public class VentanaPrincipal extends JFrame {
         });
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ventanaCrearRecorrido.CrearBuses();
                 // Se muestra la ventana para reservar un asiento
                 ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
             }

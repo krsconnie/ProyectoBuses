@@ -2,6 +2,7 @@ package Visual;
 
 import org.example.Asiento;
 import org.example.Bus;
+import org.example.SistemaReservas;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +14,12 @@ import javax.swing.*;
 public class VentanaReservarAsiento extends JFrame {
     private JPanel panel;
     ArrayList<Bus> buses;
-
+    SistemaReservas sistema;
+    VentanaCancelarReserva ventanaCancelarReserva;
     public VentanaReservarAsiento() {
+
+        ventanaCancelarReserva = new VentanaCancelarReserva();
+        sistema = new SistemaReservas(buses);
         // Parametros de la ventana
         setTitle("Reservar Asiento");
         setSize(1280, 720);
@@ -73,14 +78,10 @@ public class VentanaReservarAsiento extends JFrame {
         this.buses = buses;
     }
 
-    public Bus getBus(int i){
-        return buses.get(i);
+    public void setVentanaCancelarReserva(VentanaCancelarReserva ventanaCancelarReserva) {
+        this.ventanaCancelarReserva = ventanaCancelarReserva;
     }
-    public Asiento getAsiento(int j, int i) {
-        if (i > 71 && i < 0) {
-            return buses.get(j).getAsiento(i);
-        } else {
-            return null;
-        }
+    public void traspasoBuses(ArrayList<Bus> buses){
+        ventanaCancelarReserva.setBuses(buses);
     }
 }

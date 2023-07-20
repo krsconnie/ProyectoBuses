@@ -117,6 +117,7 @@ public class VentanaCrearRecorrido extends JFrame {
             ventanaReservarAsiento = new VentanaReservarAsiento();
             ventanaCancelarReserva = new VentanaCancelarReserva();
         }
+        ventanaReservarAsiento.setVentanaCancelarReserva(ventanaCancelarReserva);
     }
 
     /**
@@ -163,8 +164,10 @@ public class VentanaCrearRecorrido extends JFrame {
                 bus = new Bus(recorrido);
                 bus.setHorario(horarios.get(i));
                 bus.setFecha(fechas.get(i));
+                buses.add(bus);
             }
         }
+        ventanaReservarAsiento.setBuses(buses);
 
     }
     public Bus getBus(int i){
