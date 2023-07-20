@@ -63,12 +63,21 @@ public class SistemaReservas {
         return null;
     }
 
-    public void seleccionarAsiento(int cualBus,int numeroAsiento){
+    public Asiento seleccionarAsiento(int cualBus, int numeroAsiento) {
         int precio = 0;
-        Bus bus = autobuses.get(cualBus-1);
-        Asiento seleccionado = bus.asientos.get(numeroAsiento-1);
-        precio = bus.getValorPasaje(numeroAsiento-1);
+        Asiento seleccionado = new Asiento();
+        Bus bus = autobuses.get(cualBus - 1);
+        seleccionado = bus.asientos.get(numeroAsiento - 1);
+        precio = bus.getValorPasaje(numeroAsiento - 1);
+        return seleccionado;
     }
-    public void pagarAsiento(){
+
+    public void pagarAsiento(Bus bus, int i)throws AsientoNoDisponibleException {
+        if (bus.getAsiento(i).getEstado().equals("Disponible")) {
+            bus.getAsiento(i).reservar();
+            System.out.println("Asiento reservado y pagado exitosamente. Precio:$" + bus.getValorPasaje(bus.getValorPasaje(i)));
+        }else{
+            throw new AsientoNoDisponibleException("El asiento no está disponible para reservar.");
+        }
     }
 }

@@ -13,7 +13,6 @@ import javax.swing.*;
 public class VentanaReservarAsiento extends JFrame {
     private JPanel panel;
     ArrayList<Bus> buses;
-    Bus bus;
 
     public VentanaReservarAsiento() {
         // Parametros de la ventana
