@@ -1,8 +1,8 @@
 package Visual;
 
-import org.example.Bus;
 import org.example.SistemaReservas;
 
+import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -10,13 +10,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 /**
  * La clase VentanaPrincipal representa la ventana principal de una aplicación de venta de pasajes de buses.
  * Hereda de JFrame y contiene un panel con botones para realizar acciones principales, como crear un recorrido,
@@ -24,9 +18,8 @@ import javax.swing.JPanel;
  */
 public class VentanaPrincipal extends JFrame {
     private JPanel panel;
-    SistemaReservas sistemaReservas;
-    VentanaCrearRecorrido ventanaCrearRecorrido;
-
+    private SistemaReservas sistemaReservas;
+    private VentanaCrearRecorrido ventanaCrearRecorrido;
 
     /**
      * Constructor de la clase VentanaPrincipal.
@@ -34,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
      * También define el comportamiento de los botones al ser presionados.
      */
     public VentanaPrincipal() {
-
+        // Creación de la ventana para crear recorridos
         ventanaCrearRecorrido = new VentanaCrearRecorrido();
 
         // Parametros de la ventana
@@ -52,7 +45,7 @@ public class VentanaPrincipal extends JFrame {
                 Image backgroundImage = image.getImage();
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
 
-                //Inicialización sistema de reservas
+                // Inicialización sistema de reservas
                 sistemaReservas = new SistemaReservas(ventanaCrearRecorrido.buses);
             }
         };
@@ -78,7 +71,6 @@ public class VentanaPrincipal extends JFrame {
         gbc.gridy = 2;
         panel.add(btnCancelarReserva, gbc);
 
-
         // Se añade panel a la ventana principal
         add(panel);
 
@@ -89,6 +81,7 @@ public class VentanaPrincipal extends JFrame {
                 ventanaCrearRecorrido.setVisible(true);
             }
         });
+
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ventanaCrearRecorrido.CrearBuses();
@@ -96,6 +89,7 @@ public class VentanaPrincipal extends JFrame {
                 ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
             }
         });
+
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Se muestra la ventana para cancelar una reserva

@@ -37,9 +37,10 @@ public class VentanaCrearRecorrido extends JFrame {
 
 
     /**
-     * Constructor de la clase VentanaCrearRecorrido.
-     * Configura los parámetros de la ventana submenú, crea el panel y añade los componentes necesarios.
-     * También define el comportamiento del botón Aceptar.
+     * La clase VentanaCrearRecorrido representa una ventana para crear un recorrido.
+     * Hereda de JFrame y contiene varios componentes como etiquetas,
+     * campos de texto y botones para seleccionar y capturar información sobre la ruta,
+     * fecha y hora del recorrido a crear.
      */
     public VentanaCrearRecorrido() {
 
@@ -145,18 +146,46 @@ public class VentanaCrearRecorrido extends JFrame {
         }
         return months;
     }
+    /**
+     * Obtiene el número de buses creados en la ventana.
+     *
+     * @return El número de buses creados.
+     */
     public int getNumBuses(){
         return recorridos.size();
     }
+    /**
+     * Obtiene el recorrido del bus en la posición i.
+     *
+     * @param i Índice del bus.
+     * @return El recorrido del bus.
+     */
     public Bus.Recorrido getRuta(int i){
             return recorridos.get(i);
     }
+    /**
+     * Obtiene la fecha del bus en la posición i.
+     *
+     * @param i Índice del bus.
+     * @return La fecha del bus en formato "dd/MM".
+     */
     public String getFecha(int i){
         return fechas.get(i);
     }
+    /**
+     * Obtiene el horario del bus en la posición i.
+     *
+     * @param i Índice del bus.
+     * @return El horario del bus.
+     */
     public String getHorario(int i){
         return horarios.get(i);
     }
+
+    /**
+     * Crea objetos de la clase Bus con los datos de los recorridos y horarios seleccionados,
+     * y los agrega a la lista de buses disponibles en la ventana de reserva de asientos.
+     */
     public void CrearBuses() {
         for (int i = 0; i < getNumBuses(); i++) {
             Bus.Recorrido recorrido = getRuta(i);
@@ -170,6 +199,12 @@ public class VentanaCrearRecorrido extends JFrame {
         ventanaReservarAsiento.setBuses(buses);
 
     }
+    /**
+     * Obtiene el objeto Bus en la posición i de la lista de buses disponibles.
+     *
+     * @param i Índice del bus en la lista.
+     * @return El objeto Bus en la posición i.
+     */
     public Bus getBus(int i){
         return buses.get(i);
     }

@@ -10,12 +10,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
-
+/**
+ * La clase VentanaReservarAsiento representa una ventana para reservar un asiento en un autobús.
+ * Hereda de JFrame y contiene varios componentes como etiquetas y botones para mostrar información
+ * sobre la reserva y permitir al usuario volver a la ventana anterior.
+ */
 public class VentanaReservarAsiento extends JFrame {
     private JPanel panel;
     ArrayList<Bus> buses;
     SistemaReservas sistema;
     VentanaCancelarReserva ventanaCancelarReserva;
+    /**
+     * Constructor de la clase VentanaReservarAsiento.
+     * Configura los parámetros de la ventana, crea el panel y añade los componentes necesarios,
+     * como una etiqueta de mensaje y un botón "Volver".
+     * También define el comportamiento del botón "Volver".
+     */
     public VentanaReservarAsiento() {
 
         ventanaCancelarReserva = new VentanaCancelarReserva();
@@ -73,14 +83,29 @@ public class VentanaReservarAsiento extends JFrame {
         add(panel);
 
     }
-
+    /**
+     * Establece la lista de buses disponibles en el sistema de reservas para esta ventana.
+     *
+     * @param buses La lista de buses disponibles.
+     */
     public void setBuses(ArrayList<Bus> buses) {
         this.buses = buses;
     }
 
+    /**
+     * Establece la instancia de la ventana VentanaCancelarReserva para esta ventana.
+     *
+     * @param ventanaCancelarReserva La instancia de VentanaCancelarReserva.
+     */
+
     public void setVentanaCancelarReserva(VentanaCancelarReserva ventanaCancelarReserva) {
         this.ventanaCancelarReserva = ventanaCancelarReserva;
     }
+    /**
+     * Realiza el traspaso de la lista de buses disponibles a la ventana VentanaCancelarReserva.
+     *
+     * @param buses La lista de buses disponibles para la reserva.
+     */
     public void traspasoBuses(ArrayList<Bus> buses){
         ventanaCancelarReserva.setBuses(buses);
     }

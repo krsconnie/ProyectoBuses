@@ -1,4 +1,5 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,11 @@ public class SistemaReservas {
     /**
      * Constructor de la clase SistemaReservas.
      * Inicializa la lista de autobuses.
+     *
+     * @param autobuses la lista de autobuses disponibles en el sistema
      */
     public SistemaReservas(ArrayList<Bus> autobuses) {
+        this.autobuses = autobuses;
     }
 
     /**
@@ -54,29 +58,55 @@ public class SistemaReservas {
         return null;
     }
 
+    /**
+     * Selecciona un asiento de un autobús.
+     *
+     * @param cualBus el índice del autobús en la lista de autobuses
+     * @param numeroAsiento el número del asiento a seleccionar
+     * @return el asiento seleccionado
+     */
     public Asiento seleccionarAsiento(int cualBus, int numeroAsiento) {
-        int precio = 0;
-        Asiento seleccionado = new Asiento();
         Bus bus = autobuses.get(cualBus - 1);
-        seleccionado = bus.asientos.get(numeroAsiento - 1);
-        precio = bus.getValorPasaje(numeroAsiento - 1);
-        return seleccionado;
+        return bus.getAsiento(numeroAsiento - 1);
     }
 
-    public void pagarAsiento(Bus bus, int i)throws AsientoNoDisponibleException {
-        if (bus.getAsiento(i).getEstado().equals("Disponible")) {
-            bus.getAsiento(i).reservar();
-            System.out.println("Asiento reservado y pagado exitosamente. Precio:$" + bus.getValorPasaje(i));
-        }else{
+    /**
+     * Paga un asiento de un autobús.
+     * Si el asiento está disponible, se reserva y se muestra el mensaje de éxito.
+     * Si el asiento no está disponible, se lanza una excepción AsientoNoDisponibleException.
+     *
+     * @param bus el autobús en el que se encuentra el asiento
+     * @param i el índice del asiento en la lista de asientos del autobús
+     * @throws AsientoNoDisponibleException si el asiento no está disponible para reservar
+     */
+    public void pagarAsiento(Bus bus, int i) throws AsientoNoDisponibleException {
+        Asiento asiento = bus.getAsiento(i);
+
+        if (asiento.getEstado().equals("Disponible")) {
+            asiento.reservar();
+            System.out.println("Asiento reservado y pagado exitosamente. Precio: $" + bus.getValorPasaje(i));
+        } else {
             throw new AsientoNoDisponibleException("El asiento no está disponible para reservar.");
         }
     }
-    public void cancelarReservacion(Bus bus, int i) throws AsientoNoReservadoException{
-        if(bus.getAsiento(i).getEstado().equals("Reservado")){
-            bus.getAsiento(i).cancelarReserva();
-            System.out.println("Asiento liberado, dinero devuelto exitosamente. Cantidad devuelta:$"+bus.getValorPasaje(i));
+
+    /**
+     * Cancela la reservación de un asiento de un autobús.
+     * Si el asiento está reservado, se cancela la reserva y se muestra el mensaje de éxito.
+     * Si el asiento no está reservado, se lanza una excepción AsientoNoReservadoException.
+     *
+     * @param bus el autobús en el que se encuentra el asiento
+     * @param i el índice del asiento en la lista de asientos del autobús
+     * @throws AsientoNoReservadoException si el asiento no está reservado y no se puede cancelar la reservación
+     */
+    public void cancelarReservacion(Bus bus, int i) throws AsientoNoReservadoException {
+        Asiento asiento = bus.getAsiento(i);
+
+        if (asiento.getEstado().equals("Reservado")) {
+            asiento.cancelarReserva();
+            System.out.println("Asiento liberado, dinero devuelto exitosamente. Cantidad devuelta: $" + bus.getValorPasaje(i));
         } else {
-            throw new AsientoNoReservadoException("El asiento esta disponible, no se puede cancelar reservación");
+            throw new AsientoNoReservadoException("El asiento está disponible, no se puede cancelar la reservación.");
         }
     }
 }

@@ -11,10 +11,21 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+/**
+ * La clase VentanaCancelarReserva representa una ventana para cancelar una reserva de asiento en un autobús.
+ * Hereda de JFrame y contiene varios componentes como etiquetas y botones para mostrar información
+ * sobre la cancelación de la reserva y permitir al usuario volver a la ventana anterior.
+ */
 public class VentanaCancelarReserva extends JFrame {
     private JPanel panel;
     ArrayList<Bus> buses;
     SistemaReservas sistema;
+    /**
+     * Constructor de la clase VentanaCancelarReserva.
+     * Configura los parámetros de la ventana, crea el panel y añade los componentes necesarios,
+     * como una etiqueta de mensaje y un botón "Volver".
+     * También define el comportamiento del botón "Volver".
+     */
     public VentanaCancelarReserva() {
         buses = new ArrayList<>();
         sistema = new SistemaReservas(buses);
@@ -70,7 +81,11 @@ public class VentanaCancelarReserva extends JFrame {
         // Agregar panel a la ventana
         add(panel);
     }
-
+    /**
+     * Establece la lista de buses disponibles en el sistema de reservas para esta ventana.
+     *
+     * @param buses La lista de buses disponibles.
+     */
     public void setBuses(ArrayList<Bus> buses) {
         this.buses = buses;
     }

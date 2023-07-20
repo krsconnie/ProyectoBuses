@@ -114,21 +114,28 @@ public class Bus {
         return recorrido.name().replace("_", " ");
     }
 
-    public void reservarAsiento(int numeroAsiento) {
-        Asiento reserva = asientos.get(numeroAsiento - 1);
-        if (reserva.getEstado().getEstado().equals("Disponible")) {
-            reserva.reservar();
-        }
-    }
-
+    /**
+     * Obtiene la fecha del autobús.
+     *
+     * @return la fecha del autobús
+     */
     public String getFecha() {
         return fecha;
     }
-
+    /**
+     * Establece la fecha del autobús.
+     *
+     * @param fecha la fecha del autobús
+     */
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
+    /**
+     * Obtiene el asiento en la posición especificada.
+     *
+     * @param i la posición del asiento a obtener
+     * @return el asiento en la posición especificada, o null si la posición es inválida
+     */
     public Asiento getAsiento(int i) {
         if (i > 71 && i < 0) {
             return asientos.get(i);
