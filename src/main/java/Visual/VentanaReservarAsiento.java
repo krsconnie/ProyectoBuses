@@ -15,7 +15,7 @@ public class VentanaReservarAsiento extends JFrame {
     ArrayList<Bus> buses;
     Bus bus;
 
-    public VentanaReservarAsiento(ArrayList<Bus> buses) {
+    public VentanaReservarAsiento() {
         // Parametros de la ventana
         setTitle("Reservar Asiento");
         setSize(1280, 720);
@@ -68,8 +68,12 @@ public class VentanaReservarAsiento extends JFrame {
         // Agregar panel a la ventana
         add(panel);
 
-
     }
+
+    public void setBuses(ArrayList<Bus> buses) {
+        this.buses = buses;
+    }
+
     public Bus getBus(int i){
         return buses.get(i);
     }

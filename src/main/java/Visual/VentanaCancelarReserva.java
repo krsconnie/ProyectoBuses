@@ -13,7 +13,7 @@ import javax.swing.*;
 public class VentanaCancelarReserva extends JFrame {
     private JPanel panel;
     ArrayList<Bus> buses;
-    public VentanaCancelarReserva(ArrayList<Bus> buses) {
+    public VentanaCancelarReserva() {
         // Parametros de la ventana
         setTitle("Cancelar Reserva");
         setSize(1280, 720);
@@ -66,6 +66,11 @@ public class VentanaCancelarReserva extends JFrame {
         // Agregar panel a la ventana
         add(panel);
     }
+
+    public void setBuses(ArrayList<Bus> buses) {
+        this.buses = buses;
+    }
+
     public Bus getBus(int i){
         return buses.get(i);
     }

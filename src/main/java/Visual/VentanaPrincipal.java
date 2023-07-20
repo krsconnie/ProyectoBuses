@@ -26,11 +26,7 @@ public class VentanaPrincipal extends JFrame {
     private JPanel panel;
     SistemaReservas sistemaReservas;
     VentanaCrearRecorrido ventanaCrearRecorrido;
-    VentanaReservarAsiento ventanaReservarAsiento;
-    VentanaCancelarReserva ventanaCancelarReserva;
-    ArrayList<Bus.Recorrido> recorridos;
-    ArrayList<Bus> buses;
-    private Bus bus;
+
 
     /**
      * Constructor de la clase VentanaPrincipal.
@@ -40,8 +36,6 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
 
         ventanaCrearRecorrido = new VentanaCrearRecorrido();
-        ventanaReservarAsiento = new VentanaReservarAsiento(buses);
-        ventanaCancelarReserva = new VentanaCancelarReserva(buses);
 
         // Parametros de la ventana
         setTitle("Venta de Pasajes de Buses");
@@ -59,7 +53,7 @@ public class VentanaPrincipal extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
 
                 //Inicialización sistema de reservas
-                sistemaReservas = new SistemaReservas(buses);
+                sistemaReservas = new SistemaReservas(ventanaCrearRecorrido.buses);
             }
         };
 
@@ -98,26 +92,14 @@ public class VentanaPrincipal extends JFrame {
         btnReservarAsiento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Se muestra la ventana para reservar un asiento
-                ventanaReservarAsiento.setVisible(true);
+                ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
             }
         });
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Se muestra la ventana para cancelar una reserva
-                ventanaCancelarReserva.setVisible(true);
+                ventanaCrearRecorrido.ventanaCancelarReserva.setVisible(true);
             }
         });
-    }
-    public void CrearBuses() {
-        for (int i = 0; i < ventanaCrearRecorrido.getNumBuses(); i++) {
-            Bus.Recorrido recorrido = ventanaCrearRecorrido.getRuta(i);
-            if (recorrido != null) {
-                bus = new Bus(recorrido);
-            }
-            buses.add(bus);
-        }
-    }
-    public Bus getBus(int i){
-        return buses.get(i);
     }
 }

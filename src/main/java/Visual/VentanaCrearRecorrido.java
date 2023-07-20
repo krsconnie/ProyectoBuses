@@ -25,8 +25,15 @@ public class VentanaCrearRecorrido extends JFrame {
     private JTextField txtHora;
     private JButton btnAceptar;
     private Bus.Recorrido recorrido;
+    ArrayList<Bus> buses;
 
+    private Bus bus;
+
+    VentanaReservarAsiento ventanaReservarAsiento;
+    VentanaCancelarReserva ventanaCancelarReserva;
     private ArrayList<Bus.Recorrido> recorridos;
+    private ArrayList<String> horarios;
+    private ArrayList<String> fechas;
 
 
     /**
@@ -37,6 +44,9 @@ public class VentanaCrearRecorrido extends JFrame {
     public VentanaCrearRecorrido() {
 
         ArrayList<Bus.Recorrido> recorridos = new ArrayList<Bus.Recorrido>();
+        fechas = new ArrayList<>();
+        horarios = new ArrayList<>();
+        buses = new ArrayList<>();
 
         // Parametros de la ventana submenú
         setTitle("Crear Recorrido");
@@ -97,10 +107,16 @@ public class VentanaCrearRecorrido extends JFrame {
 
                 recorrido = Bus.Recorrido.valueOf(ruta);
                 recorridos.add(recorrido);
+                fechas.add(fecha);
+                horarios.add(hora);
                  //Se cierra la ventana tras finalizar
                 dispose();
             }
         });
+        if(buses != null){
+            ventanaReservarAsiento = new VentanaReservarAsiento();
+            ventanaCancelarReserva = new VentanaCancelarReserva();
+        }
     }
 
     /**
@@ -133,5 +149,25 @@ public class VentanaCrearRecorrido extends JFrame {
     }
     public Bus.Recorrido getRuta(int i){
             return recorridos.get(i);
+    }
+    public String getFecha(int i){
+        return fechas.get(i);
+    }
+    public String getHorario(int i){
+        return horarios.get(i);
+    }
+    public void CrearBuses() {
+        for (int i = 0; i < getNumBuses(); i++) {
+            Bus.Recorrido recorrido = getRuta(i);
+            if (recorrido != null) {
+                bus = new Bus(recorrido);
+                bus.setHorario(horarios.get(i));
+                bus.setFecha(fechas.get(i));
+            }
+        }
+
+    }
+    public Bus getBus(int i){
+        return buses.get(i);
     }
 }
