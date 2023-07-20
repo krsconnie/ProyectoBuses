@@ -69,8 +69,6 @@ public class SistemaReservas {
         Asiento seleccionado = bus.asientos.get(numeroAsiento-1);
         precio = bus.getValorPasaje(numeroAsiento-1);
     }
-    public void pagarAsiento(int i){
-
-
+    public void pagarAsiento(){
     }
 }
