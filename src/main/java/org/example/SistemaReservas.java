@@ -75,9 +75,17 @@ public class SistemaReservas {
     public void pagarAsiento(Bus bus, int i)throws AsientoNoDisponibleException {
         if (bus.getAsiento(i).getEstado().equals("Disponible")) {
             bus.getAsiento(i).reservar();
-            System.out.println("Asiento reservado y pagado exitosamente. Precio:$" + bus.getValorPasaje(bus.getValorPasaje(i)));
+            System.out.println("Asiento reservado y pagado exitosamente. Precio:$" + bus.getValorPasaje(i));
         }else{
             throw new AsientoNoDisponibleException("El asiento no está disponible para reservar.");
+        }
+    }
+    public void cancelarReservacion(Bus bus, int i) throws AsientoNoReservadoException{
+        if(bus.getAsiento(i).getEstado().equals("Reservado")){
+            bus.getAsiento(i).cancelarReserva();
+            System.out.println("Asiento liberado, dinero devuelto exitosamente. Cantidad devuelta:$"+bus.getValorPasaje(i));
+        } else {
+            throw new AsientoNoReservadoException("El asiento esta disponible, no se puede cancelar reservación");
         }
     }
 }
