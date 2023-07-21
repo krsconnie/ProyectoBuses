@@ -45,10 +45,24 @@ Interfaz:
 ![image](https://github.com/krsconnie/ProyectoBuses/assets/109244120/e10e9438-7151-462b-b016-9dd3b4723f09)
 
 Cambios realizados:
-
 >>1) Actualización del diagrama UML, ofreciendo una posible solución/futura implementación de la clase CancelarReserva.
 
 >>2) Creación del diseño de VentanaReservarAsiento, requiere ajustes la visualización del ArrayList
 
 >>3) Creación e implementación de la nueva clase visual VentanaSeleccionarAsiento, asientos representados y dispuestos.
+
+>>4) En Ventana Principal se agregaron distintas ventanas y se inicializaron junto a la llamada del constructor para que estén pre-existentes pero invisibles hasta que su uso sea necesario. Esto facilita el traspaso de información entre ventanas.
+
+>>5) Enum Recorrido: Se modificó la Enum para evitar el error "No enum constant org.example.Bus.Recorrido.LosAngeles_Concepcion".
+
+>>6) En VentanaReservarAsiento y VentanaCancelarReserva se agregaron métodos para el traspaso de los ArrayList modificados entre las ventanas.
+
+>>7) En SistemaReservas se agregó el método PagarPasaje() al sistema de reservas, se agregó el método CancelarPasaje() y se creó la excepción AsientoNoReservadoException para manejar situaciones cuando se intenta cancelar un asiento que no ha sido reservado.
+
+>>8) En VentanaPrincipal y SistemaReservas se agregó la clase SistemaReservas a las ventanas ReservarAsiento y CancelarReserva para permitir su interacción con el sistema de reservas. También se implementó el traspaso de los ArrayList modificados entre las ventanas.
+
+>>9)Se agregó la documentación faltante en el código.
+
+
+
 
