@@ -157,7 +157,7 @@ public class VentanaCrearRecorrido extends JFrame {
     /**
      * Obtiene el recorrido del bus en la posición i.
      *
-     * @param i Índice del bus.
+     * @param i Indice del bus.
      * @return El recorrido del bus.
      */
     public Bus.Recorrido getRuta(int i){
@@ -166,7 +166,7 @@ public class VentanaCrearRecorrido extends JFrame {
     /**
      * Obtiene la fecha del bus en la posición i.
      *
-     * @param i Índice del bus.
+     * @param i Indice del bus.
      * @return La fecha del bus en formato "dd/MM".
      */
     public String getFecha(int i){
@@ -175,7 +175,7 @@ public class VentanaCrearRecorrido extends JFrame {
     /**
      * Obtiene el horario del bus en la posición i.
      *
-     * @param i Índice del bus.
+     * @param i Indice del bus.
      * @return El horario del bus.
      */
     public String getHorario(int i){
@@ -202,7 +202,7 @@ public class VentanaCrearRecorrido extends JFrame {
     /**
      * Obtiene el objeto Bus en la posición i de la lista de buses disponibles.
      *
-     * @param i Índice del bus en la lista.
+     * @param i Indice del bus en la lista.
      * @return El objeto Bus en la posición i.
      */
     public Bus getBus(int i){
