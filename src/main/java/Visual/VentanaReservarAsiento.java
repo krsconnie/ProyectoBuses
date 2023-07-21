@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
 /**
  * La clase VentanaReservarAsiento representa una ventana para reservar un asiento en un autobús.
  * Hereda de JFrame y contiene varios componentes como etiquetas y botones para mostrar información
@@ -26,20 +27,17 @@ public class VentanaReservarAsiento extends JFrame {
      * como una etiqueta de mensaje y un botón "Volver".
      * También define el comportamiento del botón "Volver".
      */
-    public VentanaReservarAsiento() {
+    public VentanaReservarAsiento(ArrayList<Bus> buses) {
 
         ventanaCancelarReserva = new VentanaCancelarReserva();
         sistema = new SistemaReservas(buses);
+
         // Parametros de la ventana
         setTitle("Reservar Asiento");
         setSize(1280, 720);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Creación de panel
-        panel = new JPanel(new GridBagLayout());
-
         panel = new JPanel(){
-            @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Cargar imagen de fondo
@@ -49,39 +47,20 @@ public class VentanaReservarAsiento extends JFrame {
             }
         };
 
-        // Creación de etiqueta de mensaje
-        JLabel lblMensaje = new JLabel("Pagina en construccion");
-        lblMensaje.setFont(new Font("Arial", Font.BOLD, 40));
-        lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.setLayout(new GridLayout(buses.size(), 1));
 
-        // Creación de botón "Volver"
-        JButton btnVolver = new JButton("Volver");
-        btnVolver.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Cerrar la ventana actual
-                dispose();
-            }
-        });
-
-        // Configuración de restricciones de diseño
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new java.awt.Insets(10, 10, 10, 10);
-
-        // Agregar componentes al panel
-        panel.add(lblMensaje, gbc);
-
-        gbc.gridy = 1;
-        panel.add(btnVolver, gbc);
-
-        // Agregar panel a la ventana
+        // Botones de cada bus
+        for (Bus bus : buses) {
+            JButton btnBus = new JButton("Bus: " + bus.getRecorrido() + ", Fecha: " + bus.getFecha() + ", Hora: " + bus.getHorario());
+            btnBus.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    abrirVentanaAsientos(bus);
+                }
+            });
+            panel.add(btnBus);
+        }
         add(panel);
-
     }
     /**
      * Establece la lista de buses disponibles en el sistema de reservas para esta ventana.
@@ -108,5 +87,9 @@ public class VentanaReservarAsiento extends JFrame {
      */
     public void traspasoBuses(ArrayList<Bus> buses){
         ventanaCancelarReserva.setBuses(buses);
+    }
+    // Abrir ventanas de cada bus
+    private void abrirVentanaAsientos(Bus bus) {
+        System.out.println("Aqui van los asientos");
     }
 }

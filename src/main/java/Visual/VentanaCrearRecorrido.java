@@ -117,8 +117,9 @@ public class VentanaCrearRecorrido extends JFrame {
             }
         });
         if(buses != null){
-            ventanaReservarAsiento = new VentanaReservarAsiento();
+            ventanaReservarAsiento = new VentanaReservarAsiento(buses);
             ventanaCancelarReserva = new VentanaCancelarReserva();
+            ventanaReservarAsiento.setBuses(buses);
         }
         ventanaReservarAsiento.setVentanaCancelarReserva(ventanaCancelarReserva);
     }
