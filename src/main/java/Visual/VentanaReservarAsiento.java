@@ -28,6 +28,7 @@ public class VentanaReservarAsiento extends JFrame {
      * También define el comportamiento del botón "Volver".
      */
     public VentanaReservarAsiento(ArrayList<Bus> buses) {
+        this.buses = buses;
 
         ventanaCancelarReserva = new VentanaCancelarReserva();
         sistema = new SistemaReservas(buses);
@@ -60,7 +61,10 @@ public class VentanaReservarAsiento extends JFrame {
             });
             panel.add(btnBus);
         }
-        add(panel);
+        // Usamos JScrollPane en caso de que haya demasiados botones para mostrar en la ventana.
+        JScrollPane scrollPane = new JScrollPane(panel);
+        add(scrollPane);
+
     }
     /**
      * Establece la lista de buses disponibles en el sistema de reservas para esta ventana.
@@ -80,6 +84,7 @@ public class VentanaReservarAsiento extends JFrame {
     public void setVentanaCancelarReserva(VentanaCancelarReserva ventanaCancelarReserva) {
         this.ventanaCancelarReserva = ventanaCancelarReserva;
     }
+
     /**
      * Realiza el traspaso de la lista de buses disponibles a la ventana VentanaCancelarReserva.
      *
@@ -88,6 +93,7 @@ public class VentanaReservarAsiento extends JFrame {
     public void traspasoBuses(ArrayList<Bus> buses){
         ventanaCancelarReserva.setBuses(buses);
     }
+
     // Abrir ventanas de cada bus
     private void abrirVentanaAsientos(Bus bus) {
         System.out.println("Aqui van los asientos");
