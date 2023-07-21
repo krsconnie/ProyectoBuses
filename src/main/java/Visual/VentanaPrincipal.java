@@ -1,5 +1,6 @@
 package Visual;
 
+import org.example.NoRecorridoException;
 import org.example.SistemaReservas;
 
 import javax.swing.*;
@@ -82,13 +83,20 @@ public class VentanaPrincipal extends JFrame {
             }
         });
 
-        btnReservarAsiento.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ventanaCrearRecorrido.CrearBuses();
-                // Se muestra la ventana para reservar un asiento
-                ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
-            }
-        });
+            btnReservarAsiento.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (ventanaCrearRecorrido.recorridos.size() != 0) {
+                        try {
+                            ventanaCrearRecorrido.CrearBuses();
+                        } catch (NoRecorridoException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        // Se muestra la ventana para reservar un asiento
+                        ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
+                    }
+                }
+            });
+
 
         btnCancelarReserva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

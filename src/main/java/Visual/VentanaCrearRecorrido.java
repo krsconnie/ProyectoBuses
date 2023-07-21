@@ -1,5 +1,6 @@
 package Visual;
 import org.example.Bus;
+import org.example.NoRecorridoException;
 
 import javax.swing.*;
 
@@ -31,7 +32,7 @@ public class VentanaCrearRecorrido extends JFrame {
 
     VentanaReservarAsiento ventanaReservarAsiento;
     VentanaCancelarReserva ventanaCancelarReserva;
-    private ArrayList<Bus.Recorrido> recorridos;
+    ArrayList<Bus.Recorrido> recorridos;
     private ArrayList<String> horarios;
     private ArrayList<String> fechas;
 
@@ -44,7 +45,8 @@ public class VentanaCrearRecorrido extends JFrame {
      */
     public VentanaCrearRecorrido() {
 
-        ArrayList<Bus.Recorrido> recorridos = new ArrayList<Bus.Recorrido>();
+
+        recorridos = new ArrayList<Bus.Recorrido>(); // Asigna la lista a la variable miembro recorridos
         fechas = new ArrayList<>();
         horarios = new ArrayList<>();
         buses = new ArrayList<>();
@@ -147,13 +149,19 @@ public class VentanaCrearRecorrido extends JFrame {
         return months;
     }
     /**
-     * Obtiene el número de buses creados en la ventana.
+     * Obtiene el número de buses creados en la lista de recorridos.
      *
-     * @return El número de buses creados.
+     * @return el número de buses creados
+     * @throws NoRecorridoException si no hay recorridos (la lista está vacía)
      */
-    public int getNumBuses(){
-        return recorridos.size();
+    public int getNumBuses()throws NoRecorridoException{
+        if(recorridos.size() != 0){
+            return recorridos.size();
+        } else {
+            throw new NoRecorridoException("No hay recorridos");
+        }
     }
+
     /**
      * Obtiene el recorrido del bus en la posición i.
      *
@@ -186,7 +194,7 @@ public class VentanaCrearRecorrido extends JFrame {
      * Crea objetos de la clase Bus con los datos de los recorridos y horarios seleccionados,
      * y los agrega a la lista de buses disponibles en la ventana de reserva de asientos.
      */
-    public void CrearBuses() {
+    public void CrearBuses() throws NoRecorridoException {
         for (int i = 0; i < getNumBuses(); i++) {
             Bus.Recorrido recorrido = getRuta(i);
             if (recorrido != null) {
@@ -194,6 +202,8 @@ public class VentanaCrearRecorrido extends JFrame {
                 bus.setHorario(horarios.get(i));
                 bus.setFecha(fechas.get(i));
                 buses.add(bus);
+            } else {
+                throw new NoRecorridoException("No hay recorridos válidos para crear los buses");
             }
         }
         ventanaReservarAsiento.setBuses(buses);
