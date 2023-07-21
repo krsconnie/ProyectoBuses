@@ -13,56 +13,63 @@ import java.util.ArrayList;
 
 public class VentanaSeleccionarAsiento extends JFrame {
     private JPanel panel;
-    private Bus bus;
-    private ArrayList<Asiento> asientos;
+    private Bus busSeleccionado;
 
-    public VentanaSeleccionarAsiento(Bus bus) {
-        this.bus = bus;
-        this.asientos = new ArrayList<>();
+    public VentanaSeleccionarAsiento(ArrayList<Bus> buses, Bus busSeleccionado) {
+        this.busSeleccionado = busSeleccionado;
 
-        // Se ajusta la ventana
+        // Parámetros de la ventana
         setTitle("Seleccionar Asiento");
-        setSize(800, 600);
+        setSize(800, 300); // Ajustar el tamaño de la ventana
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Creación de panel
-        panel = new JPanel(new GridLayout(6, 10, 5, 5));
+        // creacion de de 4 columnas de botones que representaran los asientos
+        int numAsientos = busSeleccionado.getAsientos().size();
+        int numFilas = (int) Math.ceil((double) numAsientos / 4);
+        panel = new JPanel(new GridLayout(numFilas, 4, 5, 5));
 
-        // Creación de asientos disponibles y agregándolos a la lista de asientos
-        for (int i = 1; i <= 60; i++) {
-            Asiento asiento = new Asiento();
-            asiento.setEstado(new AsientoDisponible());
-            asientos.add(asiento);
-        }
+        // Obtener lista de asientos del bus seleccionado
+        ArrayList<Asiento> asientos = busSeleccionado.getAsientos();
 
-        // Botones de asientos
+        // Creacion de botones que representan los asientos
         for (Asiento asiento : asientos) {
             JButton btnAsiento = new JButton(String.valueOf(asiento.getNumero()));
-            actualizarEstadoAsiento(btnAsiento, asiento); // Se cambia el color
+            actualizarEstadoAsiento(btnAsiento, asiento); // Se actualiza el color del asiento
             btnAsiento.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Reserva o cancelacion de asiento
+                    // Reservar o cancelar reserva del asiento al hacer clic
                     if (asiento.getEstado() instanceof AsientoDisponible) {
                         asiento.reservar();
                     } else if (asiento.getEstado() instanceof AsientoReservado) {
                         asiento.cancelarReserva();
                     }
-                    actualizarEstadoAsiento(btnAsiento, asiento); // Se cambia el color
+                    actualizarEstadoAsiento(btnAsiento, asiento); // SE actualiza el color del asiento
                 }
             });
             panel.add(btnAsiento);
         }
 
+        // Se añade panel
         add(panel);
     }
 
-    // Sincroniza el color con el estado del asiento
+    // Se actualiza el color del asiento depéndiendo del estado
     private void actualizarEstadoAsiento(JButton btnAsiento, Asiento asiento) {
         if (asiento.getEstado() instanceof AsientoDisponible) {
             btnAsiento.setBackground(Color.GREEN);
         } else if (asiento.getEstado() instanceof AsientoReservado) {
             btnAsiento.setBackground(Color.RED);
         }
+        btnAsiento.setOpaque(true);
+        btnAsiento.setBorderPainted(false);
+        btnAsiento.setFont(new Font("Arial", Font.BOLD, 12));
+        btnAsiento.setForeground(Color.BLACK);
     }
 }
+
+
+
+
+

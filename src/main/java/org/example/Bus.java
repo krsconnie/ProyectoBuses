@@ -143,4 +143,9 @@ public class Bus {
             return null;
         }
     }
+
+
+    public ArrayList<Asiento> getAsientos() {
+        return null;
+    }
 }

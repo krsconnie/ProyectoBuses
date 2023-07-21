@@ -51,12 +51,13 @@ public class VentanaReservarAsiento extends JFrame {
         panel.setLayout(new GridLayout(buses.size(), 1));
 
         // Botones de cada bus
+        // Botones no visibles al ejecutar programa, arrayList funcional 
         for (Bus bus : buses) {
             JButton btnBus = new JButton("Bus: " + bus.getRecorrido() + ", Fecha: " + bus.getFecha() + ", Hora: " + bus.getHorario());
             btnBus.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    abrirVentanaAsientos(bus);
+                    abrirVentanaSeleccionarAsiento(bus);
                 }
             });
             panel.add(btnBus);
@@ -95,7 +96,11 @@ public class VentanaReservarAsiento extends JFrame {
     }
 
     // Abrir ventanas de cada bus
-    private void abrirVentanaAsientos(Bus bus) {
-        System.out.println("Aqui van los asientos");
+    /**
+     * @param bus
+     */
+    private void abrirVentanaSeleccionarAsiento(Bus bus) {
+        VentanaSeleccionarAsiento ventanaSeleccionarAsiento = new VentanaSeleccionarAsiento(bus);
+        ventanaSeleccionarAsiento.setVisible(true);
     }
 }
