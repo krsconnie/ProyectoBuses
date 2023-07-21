@@ -45,3 +45,10 @@ Interfaz:
 ![image](https://github.com/krsconnie/ProyectoBuses/assets/109244120/e10e9438-7151-462b-b016-9dd3b4723f09)
 
 Cambios realizados:
+
+>>1) Actualización del diagrama UML, ofreciendo una posible solución/futura implementación de la clase CancelarReserva.
+
+>>2) Creación del diseño de VentanaReservarAsiento, requiere ajustes la visualización del ArrayList
+
+>>3) Creación e implementación de la nueva clase visual VentanaSeleccionarAsiento, asientos representados y dispuestos.
+
