@@ -1,5 +1,6 @@
 package Visual;
 
+import org.example.NoHayBusesException;
 import org.example.NoRecorridoException;
 import org.example.SistemaReservas;
 
@@ -84,8 +85,8 @@ public class VentanaPrincipal extends JFrame {
         });
 
             btnReservarAsiento.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (ventanaCrearRecorrido.recorridos.size() != 0) {
+                public void actionPerformed(ActionEvent e){
+                    if (ventanaCrearRecorrido.recorridos.size() != 0){
                         try {
                             ventanaCrearRecorrido.CrearBuses();
                         } catch (NoRecorridoException ex) {
@@ -93,6 +94,10 @@ public class VentanaPrincipal extends JFrame {
                         }
                         // Se muestra la ventana para reservar un asiento
                         ventanaCrearRecorrido.ventanaReservarAsiento.setVisible(true);
+                    } else {
+                        // Manejo de la excepción NoHayBusesException
+                        JOptionPane.showMessageDialog(null, "No hay buses disponibles para realizar reservas.",
+                                "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             });
