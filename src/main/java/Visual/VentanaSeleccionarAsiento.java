@@ -20,7 +20,7 @@ public class VentanaSeleccionarAsiento extends JFrame {
 
         // Parámetros de la ventana
         setTitle("Seleccionar Asiento");
-        setSize(800, 300); // Ajustar el tamaño de la ventana
+        setSize(1280, 720); // Ajustar el tamaño de la ventana
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Creación de panel
